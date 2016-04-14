@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='App'>
+  <head>
+    <meta charset="utf-8">
+    <title>My App</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+    
+
+
+    <div class="container" ng-controller="addStudentController">
+      <form class="form" ng-submit="addStudent()">
+        <input class="form-control" ng-model="student.firstName" type="text" placeholder="first name goes here" required>
+        <input class="form-control" ng-model="student.lastName" type="text" placeholder="last name goes here" required>
+        <input class="form-control" ng-model="student.year" type="number" placeholder="year goes here" required>
+        <button type="submit" class="button btn-success">Add Student</button>
+      </form>
+    </div>
+
+    <hr>
+
+    <div class="container" ng-controller="addStudentController">
+      <ul>
+        <li ng-repeat="student in allStudents">
+            <ul class="student-list">
+              <li>FirstName: {{student.firstName}}</li>
+              <li>LastName: {{student.lastName}}</li>
+              <li>Year: {{student.year}}</li>
+              <li><input class="pull-right" type="button" ng-click="deleteStudent()" value="Delete"></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
+
+  </body>
+</html>
